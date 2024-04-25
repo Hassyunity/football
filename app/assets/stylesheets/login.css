@@ -76,5 +76,6 @@ input {
   width: 90%;
   display: block; /* Assure que l'élément img se comporte comme un bloc */
   margin: auto; /* Centre l'élément horizontalement */
+  border-radius: 10px;
 }
 
