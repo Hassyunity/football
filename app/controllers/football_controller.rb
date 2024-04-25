@@ -1,0 +1,2 @@
+class FootballController < ApplicationController
+end
