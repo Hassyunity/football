@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription</title>
+  <link rel="stylesheet" href="<%= asset_path('inscription.css')%>">
+</head>
+<body>
+  <div class="outer-containers">
+    <div class="containers">
+      <h1>Inscription</h1>
+      <%= form_with(model: @user, url: inscription_path, method: "post") do |form| %>
+      
+        <div class="form-groups">
+          <%= form.label :firtname %>
+          <%= form.text_field :firtname, class: "form-controls", placeholder: "Entre votre Nom", required: true %>
+        </div>
+
+        <div class="form-groups">
+          <%= form.label :lastname %>
+          <%= form.text_field :lastname, class: "form-controls", placeholder: "Entre votre Prenom", required: true %>
+        </div>
+
+        <div class="form-groups">
+          <%= form.label :usernamee %>
+          <%= form.text_field :username, class: "form-controls", placeholder: "Entre votre pseudo", required: true %>
+        </div>
+
+        <div class="form-groups">
+          <%= form.label :phone %>
+          <%= form.text_field :phone, class: "form-controls",
+            placeholder: "Entre votre numero de telephone",
+            required: true
+          %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :poste %>
+          <%= form.select :poste, options_for_select(["dev", "operateur", "superviseur", "manager"]),
+            { include_blank: true }, { class: "form-control", required: true } %>
+        </div>
+
+        <div class="form-groups">
+          <%= form.label :email %>
+          <%= form.email_field :email, class: "form-controls", placeholder: "Email", required: true %>
+        </div>
+
+        <div class="form-groups">
+          <%= form.label :password %>
+          <%= form.password_field :password, class: "form-controls", placeholder: "Mot de passe", required: true %>
+        </div>
+
+        <div class="form-groups">
+          <%= form.label :password_confirmation %>
+          <%= form.password_field :password_confirmation, class: "form-controls", placeholder: "Confirmer le mot de passe", required: true %>
+        </div>
+
+        <%= form.submit "S'inscrire", class: "inscrire" %>
+        <%= link_to "Annuler", root_path, class: "annuler" %>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>
