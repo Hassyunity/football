@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page d'accueil</title>
-<%# <link rel="stylesheet" href="login.css"> %>
+<link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="container">
@@ -14,7 +14,7 @@
         <div class="right">
             <%= link_to image_tag('logo.jpg', class: 'logo'), root_path %>
               <h1>Login</h1>
-             <%= form_with( method: "post") do |form| %>
+              <%= form_with(url: login_path, method: "post") do |form| %>
               <% if flash[:alert] %>
                 <div class="alert alert-danger" role="alert">
                   <%= flash[:alert] %>

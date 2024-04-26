@@ -9,16 +9,29 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # get 'views', to: 'views#index'
   root "football#index"
-
-  get '/dashboard', to: 'dashboard#index'
-
-  get '/admin/users', to: 'admin#users'
-
   get '/inscription', to: 'inscription#new'
   post '/inscription', to: 'inscription#create'
 
-  get '/login', to: 'sessions#new'
+  #get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  # config/routes.rb
+  get '/dashboard', to: 'dashboard#index'
+
+  # delete '/logout', to: 'sessions#destroy'
+  get '/admin/users', to: 'admin#users'
+
+  get '/profile', to: 'users#show'
+  get '/logout', to: 'sessions#destroy'
+ # config/routes.rb
+  resources :users do
+    member do
+      put :activate
+      put :deactivate
+    end  
+  end
+  # config/routes.rb
+  resources :users, only: [:show, :update, :edit]
+
 end
